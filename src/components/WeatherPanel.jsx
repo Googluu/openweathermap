@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Form } from './Form';
+import { Card } from './Card';
 
 export const WeatherPanel = () => {
 
@@ -14,7 +15,7 @@ export const WeatherPanel = () => {
   const [show, setShow] = useState(false);
   const [location, setLocation] = useState('');
 
-  const getLocation = async(loc) => {
+  const getLocation = async (loc) => {
     setLoading(true);
     setLocation(loc);
 
@@ -57,8 +58,14 @@ export const WeatherPanel = () => {
 
   return (
     <>
-      <Form 
-        newLocation = {getLocation}
+      <Form
+        newLocation={getLocation}
+      />
+      <Card
+        showData={show}
+        loadingData={loading}
+        weather={weather}
+        forecast={forecast}
       />
     </>
   );
